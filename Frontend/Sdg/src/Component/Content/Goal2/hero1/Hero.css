@@ -1,0 +1,14 @@
+@keyframes bgSlide {
+  0% { background-image: url('/Sdg/src/assets/E-WEB-Goal-02.png'); }
+  20% { background-image: url('/Sdg/'); }
+  40% { background-image: url('/images/slide3.jpg'); }
+  60% { background-image: url('/images/slide4.jpg'); }
+  80% { background-image: url('/images/slide5.jpg'); }
+  100% { background-image: url('/images/slide6.jpg'); }
+}
+
+.bg-slideshow {
+  background-size: cover;
+  background-position: center;
+  animation: bgSlide 30s infinite;
+}
