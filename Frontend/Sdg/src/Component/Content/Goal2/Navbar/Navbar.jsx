@@ -360,7 +360,7 @@ import Swal from "sweetalert2";
 
 // NGO Modals
 import SignupModal from "../../../NGoPartner/Signup/SignupModal";
-import LoginModal from "../../../NGoPartner/Login/Loginmodal";
+import LoginModal from "../../../NGoPartner/Login/LoginModal";
 import StatusModal from "./Status";
 
 // USER Modals
