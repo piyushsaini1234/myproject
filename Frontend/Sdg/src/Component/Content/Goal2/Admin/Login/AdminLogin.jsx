@@ -20,10 +20,10 @@ function AdminLoginModal({ isOpen, onClose, onSwitchToSignup }) {
       const data = await res.json();
 
       if (res.ok) {
-        // Token store karo
+        // Token store 
         localStorage.setItem("ngotoken", data.token);
 
-        // Admin data store karo (Navbar me show karne ke liye)
+        // Admin data store 
         localStorage.setItem(
           "admin",
           JSON.stringify({
@@ -36,7 +36,7 @@ function AdminLoginModal({ isOpen, onClose, onSwitchToSignup }) {
 
         setTimeout(() => {
           onClose();
-          navigate("/admin"); // Admin panel pe redirect
+          navigate("/admin"); // Admin panel 
         }, 1600);
       } else {
         Swal.fire("Error", data.message, "error");

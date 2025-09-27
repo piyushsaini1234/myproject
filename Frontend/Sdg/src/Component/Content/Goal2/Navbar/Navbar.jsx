@@ -499,6 +499,7 @@ function Navbar() {
       showProfileDropdown: false,
     }));
     Swal.fire("Logged Out", "You have been logged out.", "success");
+     // window.location.reload()  //refresh
   };
 
   return (
@@ -857,3 +858,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

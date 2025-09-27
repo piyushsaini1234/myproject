@@ -98,7 +98,7 @@ function Dashboard() {
       {/* Charts Section */}
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Donation Chart */}
-        <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow transition-all">
+        <div className="bg-white p-4 rounded-lg shadow transition-all">
           <h2 className="text-lg font-semibold mb-4">Donation Progress</h2>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={donationData}>
@@ -119,7 +119,7 @@ function Dashboard() {
         </div>
 
         {/* Request Chart */}
-        <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-xl">
+        <div className="bg-white  p-4 rounded-lg shadow-xl">
           <h2 className="text-lg font-semibold mb-4">Request Progress</h2>
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={requestData}>

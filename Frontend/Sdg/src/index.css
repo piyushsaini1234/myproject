@@ -28,3 +28,7 @@
 }
 
 
+body {
+  background-color: white !important;  /* fix white background */
+  color: black !important;             /* fix black text */
+}

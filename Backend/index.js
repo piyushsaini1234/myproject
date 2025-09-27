@@ -1,12 +1,14 @@
 
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require("body-parser");
+require('dotenv').config();
 const app = express();
 app.use(cors());
-require('dotenv').config();
 app.use(express.json());
-// const PORT = 5000;
-const PORT = process.env.PORT || 5000;
+app.use(bodyParser.json());
+
+const PORT = process.env.PORT || 5000 ;
 
 
 const donateFoodRouter = require('./Route/DonateFood/DonateFood');

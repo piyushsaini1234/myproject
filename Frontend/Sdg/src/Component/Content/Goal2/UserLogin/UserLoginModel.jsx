@@ -21,6 +21,12 @@ function UserLoginModal({ isOpen, onClose, onSwitchToSignup}) {
       if (res.ok) {
         localStorage.setItem("ngotoken", data.token);
         localStorage.setItem("ngouser", JSON.stringify(data.user));
+        
+        //  document.cookie =
+        //   "usertoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        // document.cookie =
+        //   "user=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+
       
         Swal.fire("Success", data.message, "success");
        

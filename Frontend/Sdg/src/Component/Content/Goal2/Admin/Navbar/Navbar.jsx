@@ -419,14 +419,14 @@ const AdminNavbar = () => {
   return (
     <>
       {/* Navbar */}
-      <header className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between shadow-2xl">
-          <h1 className="text-2xl font-bold text-blue-700 dark:text-white">
+          <h1 className="text-2xl font-bold text-blue-700 ">
             Admin Panel
           </h1>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-8 text-blue-700 dark:text-white font-medium items-center">
+          <nav className="hidden md:flex space-x-8 text-blue-700  font-medium items-center">
             <Link
               to="dashboard"
               className="flex items-center gap-2 hover:text-green-600 font-bold"
@@ -487,12 +487,12 @@ const AdminNavbar = () => {
       {/* Sidebar for Mobile */}
       {/* Sidebar for Mobile (RIGHT SIDE) */}
       <div
-        className={`fixed top-0 right-0 h-full w-85 bg-white dark:bg-gray-900 shadow-xl z-50 transform transition-transform duration-300 
+        className={`fixed top-0 right-0 h-full w-85 bg-white shadow-xl z-50 transform transition-transform duration-300 
   ${mobileMenu ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b dark:border-gray-700">
-          <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200">
+        <div className="flex items-center justify-between p-4 border-b ">
+          <h2 className="text-lg font-bold text-gray-800 ">
             Account
           </h2>
           <button onClick={() => setMobileMenu(false)}>
@@ -501,7 +501,7 @@ const AdminNavbar = () => {
         </div>
 
         {/* Profile Section */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b dark:border-gray-700">
+        <div className="flex items-center gap-3 px-4 py-3 border-b">
           <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
             {profileImage ? (
               <img
@@ -514,17 +514,17 @@ const AdminNavbar = () => {
             )}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-800 dark:text-gray-200">
+            <h3 className="font-semibold text-gray-800 ">
               {admin?.name || "Guest"}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 ">
               {admin?.email}
             </p>
           </div>
         </div>
 
         {/* Links (with auto close) */}
-        <nav className="flex flex-col gap-3 px-4 py-4 text-gray-700 dark:text-gray-200">
+        <nav className="flex flex-col gap-3 px-4 py-4 text-gray-700 ">
           <Link
             to="dashboard"
             onClick={() => setMobileMenu(false)}
@@ -619,84 +619,119 @@ const AdminNavbar = () => {
       )}
 
       {/* Update Profile Modal */}
-      {showUpdateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl w-96 animate-fadeIn">
-            <h2 className="text-xl font-bold mb-4 text-center text-gray-800 dark:text-gray-100">
-              Update Profile
-            </h2>
-            <form onSubmit={handleUpdateProfile} className="space-y-3">
-              <input
-                type="text"
-                name="name"
-                defaultValue={admin?.name}
-                placeholder="Enter Name"
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="email"
-                name="email"
-                defaultValue={admin?.email}
-                placeholder="Enter Email"
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="text"
-                name="phone"
-                defaultValue={admin?.phone}
-                placeholder="Enter Phone Number"
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="text"
-                name="address"
-                defaultValue={admin?.address}
-                placeholder="Enter Address"
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="text"
-                name="city"
-                defaultValue={admin?.city}
-                placeholder="Enter City / State"
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="password"
-                name="password"
-                defaultValue={admin?.password}
-                placeholder="Create Password"
-                className="w-full border p-2 rounded"
-              />
+{showUpdateModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div className="bg-white p-6 rounded-2xl shadow-2xl w-96 animate-fadeIn">
+      <h2 className="text-2xl font-bold mb-5 text-center text-gray-800">
+        Update Profile
+      </h2>
 
-              {/* Avatar Upload */}
-              <input
-                type="file"
-                name="avatar"
-                accept="image/*"
-                onChange={(e) => setAvatarFile(e.target.files[0])}
-                className="w-full border p-2 rounded"
-              />
-
-              <div className="flex justify-between mt-3">
-                <button
-                  type="button"
-                  className="px-4 py-2 bg-gray-500 text-white rounded"
-                  onClick={() => setShowUpdateModal(false)}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-green-600 text-white rounded"
-                >
-                  Save
-                </button>
-              </div>
-            </form>
-          </div>
+      <form onSubmit={handleUpdateProfile} className="space-y-4">
+        {/* Name */}
+        <div className="relative">
+          <input
+            type="text"
+            name="name"
+            defaultValue={admin?.name}
+            placeholder="Enter Name"
+            className="w-full border p-3 rounded-lg pr-10 focus:ring-2 focus:ring-green-400 focus:outline-none"
+          />
+          <span className="absolute right-3 top-3 text-gray-500 cursor-pointer hover:text-green-600">
+            <i className="fas fa-edit"></i>
+          </span>
         </div>
-      )}
+
+        {/* Email */}
+        <div className="relative">
+          <input
+            type="email"
+            name="email"
+            defaultValue={admin?.email}
+            placeholder="Enter Email"
+            className="w-full border p-3 rounded-lg pr-10 focus:ring-2 focus:ring-green-400 focus:outline-none"
+          />
+          <span className="absolute right-3 top-3 text-gray-500 cursor-pointer hover:text-green-600">
+            <i className="fas fa-edit"></i>
+          </span>
+        </div>
+
+        {/* Phone */}
+        <div className="relative">
+          <input
+            type="text"
+            name="phone"
+            defaultValue={admin?.phone}
+            placeholder="Enter Phone Number"
+            className="w-full border p-3 rounded-lg pr-10 focus:ring-2 focus:ring-green-400 focus:outline-none"
+          />
+          <span className="absolute right-3 top-3 text-gray-500 cursor-pointer hover:text-green-600">
+            <i className="fas fa-edit"></i>
+          </span>
+        </div>
+
+        {/* Address */}
+        <div className="relative">
+          <input
+            type="text"
+            name="address"
+            defaultValue={admin?.address}
+            placeholder="Enter Address"
+            className="w-full border p-3 rounded-lg pr-10 focus:ring-2 focus:ring-green-400 focus:outline-none"
+          />
+          <span className="absolute right-3 top-3 text-gray-500 cursor-pointer hover:text-green-600">
+            <i className="fas fa-edit"></i>
+          </span>
+        </div>
+
+        {/* City */}
+        <div className="relative">
+          <input
+            type="text"
+            name="city"
+            defaultValue={admin?.city}
+            placeholder="Enter City / State"
+            className="w-full border p-3 rounded-lg pr-10 focus:ring-2 focus:ring-green-400 focus:outline-none"
+          />
+          <span className="absolute right-3 top-3 text-gray-500 cursor-pointer hover:text-green-600">
+            <i className="fas fa-edit"></i>
+          </span>
+        </div>
+
+        {/* Password */}
+        <div className="relative">
+          <input
+            type="password"
+            name="password"
+            defaultValue={admin?.password}
+            placeholder="Create Password"
+            className="w-full border p-3 rounded-lg pr-10 focus:ring-2 focus:ring-green-400 focus:outline-none"
+          />
+          <span className="absolute right-3 top-3 text-gray-500 cursor-pointer hover:text-green-600">
+            <i className="fas fa-edit"></i>
+          </span>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex justify-between mt-5">
+          <button
+            type="button"
+            className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition"
+            onClick={() => setShowUpdateModal(false)}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
 
       <main className="p-6">
         <Outlet />

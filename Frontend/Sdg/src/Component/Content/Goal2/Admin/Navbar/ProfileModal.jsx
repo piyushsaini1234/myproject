@@ -13,7 +13,7 @@ const ProfileModal = ({
   const [file, setFile] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
 
-  // ------------------ Handle File Select ------------------
+  // Handle file selection
   const handleFileSelect = (e) => {
     const f = e.target.files[0];
     if (f) {
@@ -22,7 +22,7 @@ const ProfileModal = ({
     }
   };
 
-  // ------------------ Upload Image ------------------
+  // Upload image
   const handleUpload = async () => {
     if (!file) return alert("Please select an image first");
 
@@ -39,7 +39,6 @@ const ProfileModal = ({
       const data = await res.json();
       if (data.success) {
         const fullUrl = `http://localhost:5000${data.imageUrl}`;
-
         setUploadedImage(data.imageUrl);
         localStorage.setItem("profileImage", fullUrl);
         setProfileImage(fullUrl);
@@ -56,7 +55,7 @@ const ProfileModal = ({
     }
   };
 
-  // ------------------ Fetch Latest Image From DB ------------------
+  // Fetch latest image from DB
   useEffect(() => {
     const fetchImage = async () => {
       if (!admin?.id) return;
@@ -69,7 +68,6 @@ const ProfileModal = ({
 
         if (data.success && data.image?.image_url) {
           setUploadedImage(data.image.image_url);
-
           const fullUrl = `http://localhost:5000${data.image.image_url}`;
           localStorage.setItem("profileImage", fullUrl);
           setProfileImage(fullUrl);
@@ -82,7 +80,7 @@ const ProfileModal = ({
     fetchImage();
   }, [admin, setProfileImage]);
 
-  // ------------------ Load from LocalStorage when modal opens ------------------
+  // Load from localStorage when modal opens
   useEffect(() => {
     const storedImg = localStorage.getItem("profileImage");
     if (storedImg) {
@@ -91,8 +89,8 @@ const ProfileModal = ({
   }, [setShowProfileModal]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl w-96 animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div className="bg-white p-6 rounded-2xl shadow-xl w-96 animate-fadeIn">
         <div className="text-center mb-4">
           {/* Avatar container */}
           <div className="relative w-20 h-20 mx-auto">
@@ -117,7 +115,7 @@ const ProfileModal = ({
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <FaUserCircle className="w-10 h-10 text-gray-500 dark:text-gray-300" />
+                <FaUserCircle className="w-10 h-10 text-gray-500" />
               )}
             </label>
 
@@ -133,7 +131,7 @@ const ProfileModal = ({
             </label>
           </div>
 
-          {/* Change Photo button (only i file selected) */}
+          {/* Change Photo button */}
           {file && (
             <button
               onClick={handleUpload}
@@ -143,19 +141,17 @@ const ProfileModal = ({
             </button>
           )}
 
-          <h2 className="text-xl font-semibold mt-3 text-gray-800 dark:text-gray-100">
-            {admin?.name }
+          <h2 className="text-xl font-semibold mt-3 text-gray-800">
+            {admin?.name}
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            {admin?.email }
-          </p>
+          <p className="text-sm text-gray-500">{admin?.email}</p>
         </div>
 
-        <hr className="mb-4 border-gray-300 dark:border-gray-600" />
+        <hr className="mb-4 border-gray-300" />
 
         <div className="space-y-2">
           <button
-            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition"
+            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition"
             onClick={() => {
               setShowProfileModal(false);
               setShowUpdateModal(true);
@@ -165,14 +161,14 @@ const ProfileModal = ({
           </button>
 
           <button
-            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition"
             onClick={handleThemeToggle}
           >
             <FaCog /> Settings
           </button>
 
           <button
-            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition"
+            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition"
             onClick={handleLogout}
           >
             <FaSignOutAlt /> Logout

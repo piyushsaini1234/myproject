@@ -113,7 +113,7 @@ const UserProfileModal = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div
         ref={modalRef}
-        className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl w-96 relative animate-fadeIn"
+        className="bg-white  p-6 rounded-2xl shadow-xl w-96 relative animate-fadeIn"
       >
         {/* Close Button */}
         <button
@@ -147,7 +147,7 @@ const UserProfileModal = ({
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <FaUserCircle className="w-10 h-10 text-gray-500 dark:text-gray-300" />
+                <FaUserCircle className="w-10 h-10 text-gray-500 " />
               )}
             </label>
 
@@ -173,20 +173,20 @@ const UserProfileModal = ({
             </button>
           )}
 
-          <h2 className="text-xl font-semibold mt-3 text-gray-800 dark:text-gray-100">
+          <h2 className="text-xl font-semibold mt-3 text-gray-800 ">
             {user?.name}
           </h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 ">
             {user?.email}
           </p>
         </div>
 
-        <hr className="mb-4 border-gray-300 dark:border-gray-600" />
+        <hr className="mb-4 border-gray-300 " />
 
         {/* Action Buttons */}
         <div className="space-y-2">
           <button
-            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition"
+            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-blue-100 text-blue-600  rounded-lg hover:bg-blue-200  transition"
             onClick={() => {
               onClose();
               setShowUpdateModal(true);
@@ -196,14 +196,14 @@ const UserProfileModal = ({
           </button>
 
           <button
-            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-gray-100  rounded-lg hover:bg-gray-200  transition"
             onClick={handleThemeToggle}
           >
             <FaCog /> Settings
           </button>
 
           <button
-            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition"
+            className="w-full px-4 py-2 flex items-center justify-center gap-2 bg-red-100 text-red-600  rounded-lg hover:bg-red-200  transition"
             onClick={handleLogout}
           >
             <FaSignOutAlt /> Logout
