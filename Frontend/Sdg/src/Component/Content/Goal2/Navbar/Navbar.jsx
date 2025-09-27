@@ -359,8 +359,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 // NGO Modals
-import SignupModal from "../../../NGo Partner/Signup/SignupModal";
-import LoginModal from "../../../NGo Partner/Login/Loginmodal";
+import SignupModal from "../../../NGoPartner/Signup/SignupModal";
+import LoginModal from "../../../NGoPartner/Login/Loginmodal";
 import StatusModal from "./Status";
 
 // USER Modals

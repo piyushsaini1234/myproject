@@ -50,7 +50,7 @@ import Goal1 from './Component/Content/Goal1';
 import Goal2 from './Component/Content/Goal2/Goal2';
 
 import LearnMore from './Component/Content/Goal2/LearnMore/LearnMore';
-import NGoPartner from './Component/NGo Partner/NGoPartner';
+import NGoPartner from './Component/NGoPartner/NGoPartner';
 import Admin from './Component/Content/Goal2/Admin/Admin';
 import Dashboard from './Component/Content/Goal2/Admin/Dashboard/Dashboard';
 import Donations from './Component/Content/Goal2/Admin/Donations/Donations';
